@@ -10,10 +10,11 @@
 </head>
 <body>
 <!-- Header Section -->
+
 <header>
     <div class="container">
         <div class="logo">
-            <h1>TradeSmart</h1>
+            <h1>TradeSmart Technologies</h1>
         </div>
         <nav>
             <ul>
@@ -34,6 +35,8 @@
         <h2>Empower Your Trading Journey</h2>
         <p>Join our community and start trading with confidence.</p>
         <a href="#market-trends" class="cta-button">Explore Now</a>
+        <p id="clock" style="background-color: #004d99; color: lime">hello</p>
+
     </div>
 </section>
 
@@ -146,5 +149,39 @@
         </div>
     </div>
 </footer>
+
+<script>
+    function showTime(){
+        var date = new Date();
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+        var session = "AM";
+
+        if(h === 0){
+            h = 12;
+        }
+
+        if(h > 12){
+            h = h - 12;
+            session = "PM";
+        }
+
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+
+        var time = h + ":" + m + ":" + s + " " + session;
+
+        if(document.getElementById("clock")) {
+            document.getElementById("clock").innerText = time;
+            document.getElementById("clock").textContent = time;
+        }
+        setTimeout(showTime, 1000);
+    }
+
+    showTime();
+</script>
+
 </body>
 </html>
